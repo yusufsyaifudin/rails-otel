@@ -36,3 +36,4 @@
 
 # Ignore IDE index file
 /.idea
+docker-data
