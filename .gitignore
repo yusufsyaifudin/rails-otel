@@ -37,3 +37,4 @@
 # Ignore IDE index file
 /.idea
 docker-data
+scripts/loadtest/tokens.json
