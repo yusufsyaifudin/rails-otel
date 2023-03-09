@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+
+  get 'list-vouchers', to: 'user_promotion#list_vouchers'
 end
