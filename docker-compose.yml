@@ -17,6 +17,7 @@ services:
       DATABASE_USERNAME: root
       DATABASE_PASSWORD: password
       DATABASE_DB_NAME: rails_otel_dev
+      PROGRAM_NAME: 'rails-otel'
 
   postgres:
     image: postgres:15

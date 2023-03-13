@@ -41,3 +41,21 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 
 # Allow puma to be restarted by `bin/rails restart` command.
 plugin :tmp_restart
+
+# Use JSON format for booting logs
+ts = Time.now
+log_formatter do |str|
+
+  line = {
+    level: "UNKNOWN",
+    time: ts,
+    msg: str.delete_prefix('*').chomp().strip(),
+    trace_id: '00000000000000000000000000000000',
+    span_id: '0000000000000000',
+    trace_flags: '00',
+    node_id: RAILS_NODE_ID,
+    progname: PROGRAM_NAME,
+  }.to_json
+
+  STDOUT.puts(line)
+end
