@@ -20,5 +20,13 @@ module RailsOtel
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.watchable_dirs['lib'] = [:rb]
+
+    # Add a callback to shut down the OpenTelemetry exporter and SDK
+    config.after_initialize do
+      at_exit do
+        OTEL_EXPORTER.shutdown
+      end
+    end
+
   end
 end

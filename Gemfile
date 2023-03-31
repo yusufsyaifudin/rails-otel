@@ -57,6 +57,16 @@ gem 'jwt', '~> 2.7'
 # A set of Rails responders to dry up your application
 gem 'responders', '~> 3.1'
 
+# A stats collection and distributed tracing framework
+gem 'opentelemetry-sdk', '1.2'
+
+# OTLP exporter for the OpenTelemetry framework
+gem 'opentelemetry-exporter-otlp', '0.24.0'
+
+# All-in-one instrumentation bundle for the OpenTelemetry framework
+# Provides instrumentations for Rails, Sinatra, several HTTP libraries, and more.
+gem 'opentelemetry-instrumentation-all', '0.31.0'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
