@@ -7,6 +7,8 @@ require 'securerandom'
 require "rails/command" # Allow for base class autoload
 require "rails/commands/server/server_command" # Load the ServerCommand class
 
+require_relative "logger_json"
+
 RAILS_NODE_ID = SecureRandom.uuid
 PROGRAM_NAME = ENV['PROGRAM_NAME'] || 'no-service-name'
 
