@@ -2,6 +2,8 @@ require_relative "boot"
 
 require "rails/all"
 
+require_relative "middleware_otel"
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -27,6 +29,9 @@ module RailsOtel
         OTEL_EXPORTER.shutdown
       end
     end
+
+    # push the MiddlewareLogger::RequestContextMiddleware to head of middleware stack
+    config.middleware.insert_before(0, MiddlewareLogger::RequestContextMiddleware)
 
   end
 end
