@@ -8,7 +8,12 @@ module Vouchers
 
            throw :NotFoundUser if user.nil?
 
-           Rails.logger.debug "calling PromotionService.list_vouchers from UserVoucher.list_vouchers #{user_id}"
+           Rails.logger.debug_ctx(
+            "calling PromotionService.list_vouchers from UserVoucher.list_vouchers",
+            nil,
+            {username: user.username},
+           )
+
            vouchers = Promotions::PromotionService::list_vouchers()
 
            return {
